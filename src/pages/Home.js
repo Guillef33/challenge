@@ -28,7 +28,7 @@ function Home() {
         placeholder="Search..."
         onChange={(e) => searchItems(e.target.value)}
       />
-      {showUsers ? (
+      {/* {showUsers ? ( */}
         <>
           <RandomUserList
             users={users}
@@ -37,7 +37,7 @@ function Home() {
             filteredResults={filteredResults}
           />
         </>
-      ) : null}
+      {/* // ) : null} */}
       <Banderas />
     </div>
   );

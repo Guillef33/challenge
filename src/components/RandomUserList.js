@@ -13,19 +13,18 @@ function RandomUserList({
   filteredResults,
   showResults,
 }) {
-  // console.log(showResults);
   const { id } = useParams();
 
-  // console.log(filteredList);
+  console.log(filteredResults);
 
   return (
     <div className="cards-container">
       {showResults
         ? filteredResults.map((item) => {
-            return <UserCard user={item} />;
+            return <UserCard user={item} key={item.id} />;
           })
         : users.map((user) => {
-            return <UserCard user={user} />;
+            return <UserCard user={user} key={user.id} />;
           })}
     </div>
   );

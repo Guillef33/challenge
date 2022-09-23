@@ -9,6 +9,7 @@ function UserCard({ user }) {
   return (
     <div className="user-card">
       <img src={user.picture.large} alt="profile" />
+      <h2>{user.name.first}</h2>
       <p key={user.id}>{user.email}</p>
       <p key={user.id}>{user.nacionality}</p>
 

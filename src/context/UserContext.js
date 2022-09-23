@@ -24,12 +24,12 @@ const UserProvider = (props) => {
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
     if (searchInput !== "") {
-      const filteredData = users.filter((item) => {
-        return Object.values(item)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
+      const filteredData = users.filter((item) =>
+        item.name.first
+          .toLocaleLowerCase()
+          .includes(searchInput.toLocaleLowerCase())
+      );
+      console.log(filteredData);
       setFilteredResults(filteredData);
       setShowUsers(false);
       setshowResults(true);
@@ -46,7 +46,7 @@ const UserProvider = (props) => {
         showUsers,
         setShowUsers,
         showResults,
-        filteredResults
+        filteredResults,
       }}
     >
       {props.children}
