@@ -27,8 +27,8 @@ function Banderas() {
       });
   }, []);
 
-  let [cantidad, setCantidad] = useState(0);
-  const [pais, setPais] = useState("");
+  const [cantidad, setCantidad] = useState(0);
+  const [pais, setPais] = useState("dk");
   const [customCall, setCustomCall] = useState([]);
   const [showCustom, setShowCustom] = useState(false);
 
@@ -36,16 +36,18 @@ function Banderas() {
     setPais(e.target.value);
   };
 
-  const getCustomRequest = event => {
+  const getCustomRequest = (event) => {
     event.preventDefault();
+    console.log(cantidad, pais);
     fetch(`https://randomuser.me/api/?results=${cantidad}&nat=${pais}`)
       .then((res) => res.json())
-      .then((json) => setCustomCall(json))
+      /*     .then((json) => console.log(json.results)) */
+      .then((json) => setCustomCall(json.results))
       .catch((error) => {
         console.log("Error", error);
       });
     setShowCustom(!showCustom);
-  }
+  };
 
   //   console.log(customCall.results);
 
@@ -69,20 +71,20 @@ function Banderas() {
       </form>
 
       <div className="cards-container">
-        {showEn
+        {/*         {showEn
           ? englishUsers.results.map((user) => {
               return <UserCard user={user} />;
             })
-          : null}
+          : null} */}
         {/* {showGe`
           ? germanUsers.results.map((user) => {
               return <UserCard user={user} />;
             })
           : null} */}
 
-        {showCustom
-          ? customCall.results.map((user) => {
-              return <UserCard user={user} />;
+        {customCall.length !== 0
+          ? customCall.map((user) => {
+              return <UserCard user={user} key={user.id} />;
             })
           : null}
       </div>
