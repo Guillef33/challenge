@@ -15,20 +15,21 @@ const UserProvider = (props) => {
   const [showResults, setshowResults] = useState(false);
 
   useEffect(() => {
-    fetch("https://randomuser.me/api/?results=9")
+    fetch("https://randomuser.me/api/?results=21")
       .then((res) => res.json())
       .then((json) => setUsers(json.results));
   }, []);
 
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
-    console.log(searchInput);
     if (searchInput !== "") {
       const filteredData = users.filter((user) =>
         user.name.first
           .toLocaleLowerCase()
           .includes(searchInput.toLocaleLowerCase())
       );
+          console.log(filteredData);
+
       setFilteredResults(filteredData);
       setShowUsers(false);
       setshowResults(true);

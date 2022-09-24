@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import UserProvider, { UserContext } from "./context/UserContext";
+import React from "react";
+import UserProvider from "./context/UserContext";
 import AppRouter from "./router/AppRouter";
 
 

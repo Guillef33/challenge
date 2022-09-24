@@ -6,8 +6,6 @@ import { Link, useParams } from "react-router-dom";
 import "../App.css";
 
 function RandomUserList({ users, filteredResults, showResults }) {
-  console.log(showResults);
-
   return (
     <div className="cards-container">
       {showResults
