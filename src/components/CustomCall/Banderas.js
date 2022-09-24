@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import UserCard from "../Users/UserCard";
 import { Link } from "react-router-dom";
+import { Container, Box, Typography } from "@mui/material";
 
 function Banderas() {
   const [cantidad, setCantidad] = useState(0);
@@ -26,27 +27,27 @@ function Banderas() {
   };
 
   return (
-    <div>
-      <h2>How many players and from which country?</h2>
-      <form onSubmit={getCustomRequest}>
-        <select value={pais} onChange={handleChange}>
-          <option value="dk">Alemania</option>
-          <option value="gb">Inglaterra</option>
-          <option value="fr">Francia</option>
-        </select>
-        <input onChange={(e) => setCantidad(e.target.value)} type="number" />
-        <button type="submit">Ver Custom Call</button>
-        <Link to="/">Volver a home</Link>
-      </form>
-
-      <div className="cards-container">
-        {customCall.length !== 0
-          ? customCall.map((user) => {
-              return <UserCard user={user} key={user.id} />;
-            })
-          : null}
-      </div>
-    </div>
+    <Container>
+      <Box>
+        <Typography>How many players and from which country?</Typography>
+        <form onSubmit={getCustomRequest}>
+          <select value={pais} onChange={handleChange}>
+            <option value="dk">Alemania</option>
+            <option value="gb">Inglaterra</option>
+            <option value="fr">Francia</option>
+          </select>
+          <input onChange={(e) => setCantidad(e.target.value)} type="number" />
+          <button type="submit">Ver Custom Call</button>
+          <Link to="/">Volver a home</Link>
+        </form>
+      </Box>
+      <Box className="cards-container"></Box>
+      {customCall.length !== 0
+        ? customCall.map((user) => {
+            return <UserCard user={user} key={user.id} />;
+          })
+        : null}
+    </Container>
   );
 }
 
