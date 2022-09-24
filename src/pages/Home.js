@@ -21,8 +21,8 @@ function Home() {
   return (
     <Container>
       <Header
-        title="Conoce los mejores jugadores del mundo"
-        description="Busca y recluta ahora"
+        title="Discover the best poker players"
+        description="From all over the World. You can contact them now"
       />
       <Box
         style={{
@@ -40,7 +40,7 @@ function Home() {
         />{" "}
         {/* <Box className="button-wrapper"> */}
         <Button component={Link} variant="contained" to="/custom">
-          Busqueda avanzada
+          Advanced Search
         </Button>
         {/* </Box> */}
       </Box>

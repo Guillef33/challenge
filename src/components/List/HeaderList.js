@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React from "react";
 
 function HeaderList({ filteredResults }) {
@@ -5,10 +6,9 @@ function HeaderList({ filteredResults }) {
 
   return (
     <>
-      <p name="quantity">
-        Muchas gracias, su busqueda ha arrogado {quantity}{" "}
-        {quantity <= 1 ? "resultado" : "resultados"}
-      </p>
+      <Typography name="quantity" marginTop={4}>
+        Great! We find {quantity} {quantity <= 1 ? "profile" : "profiles"}
+      </Typography>
     </>
   );
 }

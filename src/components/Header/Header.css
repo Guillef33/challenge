@@ -2,9 +2,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 1em;
-    margin-bottom: 40px;
+    margin-bottom: 3em;
+    padding: 2em;
 }
 
-.title-wrapper {
-
-}

@@ -50,7 +50,7 @@ function UserCard({ user }) {
           onClick={showPop}
           name="popUp-button"
           size="small"
-        > Ver perfil
+        >See Profile
         </Button>
       </CardActions>
 

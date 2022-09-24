@@ -9,10 +9,10 @@ function Header({ title, description }) {
   return (
     <AppBar className="header-container">
       <Box className="title-wrapper">
-        <Typography variant="h3" className="header">
+        <Typography variant="h4" className="header">
           {title}
         </Typography>
-        <Typography className="description" variant="h5">
+        <Typography className="description" variant="h6">
           {description}
         </Typography>
       </Box>
