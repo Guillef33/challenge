@@ -3,33 +3,32 @@ import React, { useState, createContext, useEffect } from "react";
 export const UserContext = createContext(null);
 
 const UserProvider = (props) => {
-  //   const [isLoading, setIsLoading] = useState(true);
+  // The Users Object
   const [users, setUsers] = useState([]);
+  // For switching show and hide, maybe it can be deleted
   const [showUsers, setShowUsers] = useState(false);
+  // To store the query of quantity in the Flags component
   const [searchInput, setSearchInput] = useState("");
+  // To store the result of the users when it has a filter by name
   const [filteredResults, setFilteredResults] = useState([]);
+  // For switching show and hide, maybe it can be deleted
   const [showResults, setshowResults] = useState(false);
 
   useEffect(() => {
     fetch("https://randomuser.me/api/?results=9")
       .then((res) => res.json())
       .then((json) => setUsers(json.results));
-    // setTimeout(() => {
-    //   setIsLoading(false);
-    // }, 3000);
   }, []);
-
-  //   console.log(englishUsers);
 
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
+    console.log(searchInput);
     if (searchInput !== "") {
-      const filteredData = users.filter((item) =>
-        item.name.first
+      const filteredData = users.filter((user) =>
+        user.name.first
           .toLocaleLowerCase()
           .includes(searchInput.toLocaleLowerCase())
       );
-      console.log(filteredData);
       setFilteredResults(filteredData);
       setShowUsers(false);
       setshowResults(true);

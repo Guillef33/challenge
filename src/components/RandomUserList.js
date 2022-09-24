@@ -5,26 +5,17 @@ import { Link, useParams } from "react-router-dom";
 
 import "../App.css";
 
-function RandomUserList({
-  users,
-  filteredList,
-  setFilteredList,
-  nameUser,
-  filteredResults,
-  showResults,
-}) {
-  const { id } = useParams();
-
-  console.log(filteredResults);
+function RandomUserList({ users, filteredResults, showResults }) {
+  console.log(showResults);
 
   return (
     <div className="cards-container">
       {showResults
-        ? filteredResults.map((item) => {
-            return <UserCard user={item} key={item.id} />;
+        ? filteredResults.map((user, index) => {
+            return <UserCard user={user} key={index} />;
           })
-        : users.map((user) => {
-            return <UserCard user={user} key={user.id} />;
+        : users.map((user, index) => {
+            return <UserCard user={user} key={index} />;
           })}
     </div>
   );

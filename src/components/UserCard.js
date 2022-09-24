@@ -13,16 +13,19 @@ function UserCard({ user }) {
     setShowPopUp(true);
   };
 
+  // console.log(user);
+
   return (
     <div className="user-card">
       <img src={user.picture.large} alt="profile" />
       <h2>{user.name.first}</h2>
-      <p key={user.id}>{user.email}</p>
-      <p key={user.id}>{user.nacionality}</p>
+      <p>{user.email}</p>
+      <p>{user.location.country}</p>
 
-      <Link to={`/user-detail/${id}`} state={{ user }}>
-        See complete Profile{" "}
-      </Link>
+      <p>{user.location.city}</p>
+      <p>
+        {user.location.street.name} {user.location.street.number} {}
+      </p>
 
       <button onClick={showPop}>Ver perfil</button>
 

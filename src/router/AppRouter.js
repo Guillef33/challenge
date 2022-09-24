@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 
 import Home from "../pages/Home";
-import UserDetail from "../components/UserDetail";
 
 function AppRouter() {
   return (
@@ -16,7 +15,6 @@ function AppRouter() {
       {/* <Newnav /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="user-detail/:id" element={<UserDetail />} />
       </Routes>
       {/* <Footer /> */}
     </Router>

@@ -13,31 +13,29 @@ function Home() {
     searchItems,
     users,
     setUsers,
-    showResults,
     filteredResults,
+    showResults
   } = useContext(UserContext);
 
   return (
     <div>
       <h1>List of Users</h1>
       <button onClick={() => setShowUsers(!showUsers)}>
-        Get a List of Random Users
+      Selecciona cuantos jugadores de poker profesionales y por pais
       </button>
       <input
         icon="search"
         placeholder="Search..."
         onChange={(e) => searchItems(e.target.value)}
       />
-      {/* {showUsers ? ( */}
-        <>
-          <RandomUserList
-            users={users}
-            setUsers={setUsers}
-            showResults={showResults}
-            filteredResults={filteredResults}
-          />
-        </>
-      {/* // ) : null} */}
+      <>
+        <RandomUserList
+          users={users}
+          setUsers={setUsers}
+          filteredResults={filteredResults}
+          showResults={showResults}
+        />
+      </>
       <Banderas />
     </div>
   );
