@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import UserCard from "./UserCard";
+import UserCard from "../Users/UserCard";
+import { Link } from "react-router-dom";
 
 function Banderas() {
   const [cantidad, setCantidad] = useState(0);
@@ -35,6 +36,7 @@ function Banderas() {
         </select>
         <input onChange={(e) => setCantidad(e.target.value)} type="number" />
         <button type="submit">Ver Custom Call</button>
+        <Link to="/">Volver a home</Link>
       </form>
 
       <div className="cards-container">

@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
 import ShowPop from "./ShowPop";
 
-import "../App.css";
+import "../../App.css";
 
 function UserCard({ user }) {
-  const { id } = useParams();
-
   const [showPopUp, setShowPopUp] = useState(false);
 
   const showPop = () => {
     setShowPopUp(true);
   };
-
-  // console.log(user);
 
   return (
     <div className="user-card">
@@ -27,7 +22,9 @@ function UserCard({ user }) {
         {user.location.street.name} {user.location.street.number} {}
       </p>
 
-      <button onClick={showPop}>Ver perfil</button>
+      <button onClick={showPop} name="popUp-button">
+        Ver perfil
+      </button>
 
       {showPopUp ? <ShowPop user={user} /> : null}
     </div>

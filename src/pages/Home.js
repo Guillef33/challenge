@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import "../App.css";
-import RandomUserList from "../components/RandomUserList";
-import Banderas from "../components/Banderas";
-
+import RandomUserList from "../components/List/RandomUserList";
 import { UserContext } from "../context/UserContext";
+import Header from "../components/Header/Header";
 
 function Home() {
   const {
-    showUsers,
-    setShowUsers,
+    // showUsers,
+    // setShowUsers,
     searchItems,
     users,
     setUsers,
@@ -18,11 +17,15 @@ function Home() {
 
   return (
     <div>
-      <h1>Los mejores jugadores de poker del mundo</h1>
+      <Header
+        title="Conoce los mejores jugadores del mundo"
+        description="Busca y recluta ahora"
+      />
       <input
         icon="search"
         placeholder="Search..."
         onChange={(e) => searchItems(e.target.value)}
+        name="searchBox"
       />
       <>
         <RandomUserList
@@ -32,7 +35,6 @@ function Home() {
           showResults={showResults}
         />
       </>
-      <Banderas />
     </div>
   );
 }

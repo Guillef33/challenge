@@ -6,17 +6,17 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
+import Banderas from "../components/CustomCall/Banderas";
 
 import Home from "../pages/Home";
 
 function AppRouter() {
   return (
     <Router>
-      {/* <Newnav /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/custom" element={<Banderas />} />
       </Routes>
-      {/* <Footer /> */}
     </Router>
   );
 }
