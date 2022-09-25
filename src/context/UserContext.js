@@ -15,9 +15,9 @@ const UserProvider = (props) => {
   const [showResults, setshowResults] = useState(false);
 
   // Advanced Search
-  const [cantidad, setCantidad] = useState(0);
-  const [errorCantidad, setErrorCantidad] = useState(false);
-  const [pais, setPais] = useState("dk");
+  const [quantity, setQuantity] = useState(0);
+  const [errorQuantity, setErrorQuantity] = useState(false);
+  const [country, setCountry] = useState("dk");
   const [searchResults, setSearchResults] = useState([]);
   const [showCustom, setShowCustom] = useState(false);
 
@@ -26,14 +26,6 @@ const UserProvider = (props) => {
       .then((res) => res.json())
       .then((json) => {
         setUsers(json.results);
-        // Agregar una propiedad jugadores de poker en el objeto
-        //   const pokerUsers = Object.entries(json.results).map((item) => {
-        //     item[1].pokerLevel = "advanced";
-
-        //     return item;
-        //   });
-        //   console.log(pokerUsers);
-        //   setUsers(pokerUsers);
       });
   }, []);
 
@@ -53,13 +45,13 @@ const UserProvider = (props) => {
     }
   };
 
-  const handleChange = (e) => {
-    setPais(e.target.value);
+  const selectCountry = (e) => {
+    setCountry(e.target.value);
   };
 
   const getCustomRequest = (event) => {
     event.preventDefault();
-    fetch(`https://randomuser.me/api/?results=${cantidad}&nat=${pais}`)
+    fetch(`https://randomuser.me/api/?results=${quantity}&nat=${country}`)
       .then((res) => res.json())
       .then((json) => setSearchResults(json.results))
       .catch((error) => {
@@ -78,12 +70,12 @@ const UserProvider = (props) => {
         setShowUsers,
         showResults,
         filteredResults,
-        handleChange,
+        selectCountry,
         getCustomRequest,
-        pais, 
-        setCantidad,
+        country,
+        errorQuantity,
+        setQuantity,
         searchResults,
-        errorCantidad
       }}
     >
       {props.children}

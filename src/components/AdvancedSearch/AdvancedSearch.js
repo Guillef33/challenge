@@ -7,23 +7,23 @@ import SearchForm from "./SearchForm";
 
 function AdvancedSearch() {
   const {
-    handleChange,
+    selectCountry,
     getCustomRequest,
-    pais,
-    setCantidad,
+    country,
+    errorQuantity,
+    setQuantity,
     searchResults,
-    errorCantidad,
   } = useContext(UserContext);
 
   return (
     <Container>
       <Typography>How many players and from which country?</Typography>
       <SearchForm
-        handleChange={handleChange}
+        selectCountry={selectCountry}
         getCustomRequest={getCustomRequest}
-        pais={pais}
-        errorCantidad={errorCantidad}
-        setCantidad={setCantidad}
+        country={country}
+        errorQuantity={errorQuantity}
+        setQuantity={setQuantity}
       />
       <Grid container spacing={2} marginTop={2}>
         {searchResults.length !== 0

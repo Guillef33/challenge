@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import {
   Box,
@@ -13,11 +13,11 @@ import {
 } from "@mui/material";
 
 function SearchForm({
-  handleChange,
+  selectCountry,
   getCustomRequest,
-  pais,
-  errorCantidad,
-  setCantidad,
+  country,
+  errorQuantity,
+  setQuantity,
 }) {
   return (
     <Box onSubmit={getCustomRequest} component="form" noValidate sx={{ mt: 1 }}>
@@ -26,8 +26,8 @@ function SearchForm({
         <Select
           id="custom-call-country-select"
           label="Country"
-          value={pais}
-          onChange={handleChange}
+          value={country}
+          onChange={selectCountry}
         >
           <MenuItem value="dk">Denmark</MenuItem>
           <MenuItem value="gb">England</MenuItem>
@@ -39,7 +39,7 @@ function SearchForm({
       </FormControl>
       <TextField
         margin="normal"
-        error={errorCantidad}
+        error={errorQuantity}
         required
         fullWidth
         id="quantity"
@@ -48,15 +48,7 @@ function SearchForm({
         autoComplete="quantity"
         autoFocus
         onChange={(e) => {
-          setCantidad(e.target.value);
-          // if (cantidad.lenght > 3) {
-          //   return null
-          // }
-          // if (cantidad.typeof !== "number") {
-          //   setErrorCantidad(true);
-          // } else {
-          //   setErrorCantidad(false);
-          // }
+          setQuantity(e.target.value);
         }}
         type="number"
       />
@@ -70,4 +62,4 @@ function SearchForm({
   );
 }
 
-export default SearchForm
+export default SearchForm;
