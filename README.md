@@ -1,4 +1,6 @@
-## Available Scripts
+## Read me
+
+### How to run the project
 
 In the project directory, you can run:
 
