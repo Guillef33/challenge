@@ -14,10 +14,27 @@ const UserProvider = (props) => {
   // For switching show and hide, maybe it can be deleted
   const [showResults, setshowResults] = useState(false);
 
+  // Advanced Search
+  const [cantidad, setCantidad] = useState(0);
+  const [errorCantidad, setErrorCantidad] = useState(false);
+  const [pais, setPais] = useState("dk");
+  const [searchResults, setSearchResults] = useState([]);
+  const [showCustom, setShowCustom] = useState(false);
+
   useEffect(() => {
     fetch("https://randomuser.me/api/?results=21")
       .then((res) => res.json())
-      .then((json) => setUsers(json.results));
+      .then((json) => {
+        setUsers(json.results);
+        // Agregar una propiedad jugadores de poker en el objeto
+        //   const pokerUsers = Object.entries(json.results).map((item) => {
+        //     item[1].pokerLevel = "advanced";
+
+        //     return item;
+        //   });
+        //   console.log(pokerUsers);
+        //   setUsers(pokerUsers);
+      });
   }, []);
 
   const searchItems = (searchValue) => {
@@ -35,6 +52,22 @@ const UserProvider = (props) => {
       setFilteredResults(users);
     }
   };
+
+  const handleChange = (e) => {
+    setPais(e.target.value);
+  };
+
+  const getCustomRequest = (event) => {
+    event.preventDefault();
+    fetch(`https://randomuser.me/api/?results=${cantidad}&nat=${pais}`)
+      .then((res) => res.json())
+      .then((json) => setSearchResults(json.results))
+      .catch((error) => {
+        console.log("Error", error);
+      });
+    setShowCustom(!showCustom);
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -45,6 +78,12 @@ const UserProvider = (props) => {
         setShowUsers,
         showResults,
         filteredResults,
+        handleChange,
+        getCustomRequest,
+        pais, 
+        setCantidad,
+        searchResults,
+        errorCantidad
       }}
     >
       {props.children}

@@ -1,13 +1,10 @@
 import React from "react";
 import UserCard from "../Users/UserCard";
-import { styled } from "@mui/material/styles";
 
-import "../../App.css";
 import HeaderList from "./HeaderList";
 import { Grid, Box } from "@mui/material";
 
-function RandomUserList({ users, filteredResults, showResults }) {
-
+function UserList({ users, filteredResults, showResults }) {
   return (
     <>
       {showResults ? (
@@ -40,4 +37,4 @@ function RandomUserList({ users, filteredResults, showResults }) {
   );
 }
 
-export default RandomUserList;
+export default UserList;

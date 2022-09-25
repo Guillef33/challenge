@@ -6,7 +6,7 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import AdvancedSearch from "../components/CustomCall/AdvancedSearch";
+import AdvancedSearch from "../components/AdvancedSearch/AdvancedSearch";
 
 import Home from "../pages/Home";
 

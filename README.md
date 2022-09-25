@@ -39,3 +39,6 @@ The advanced search
 / Validate the inputs for search and the advanced search
 / Create better tests
 / Create pagination in the UserList component
+/ Make the user grid a reusable component where I only pass the array to be display
+/ Add properties related with poker for filter a mock level of each profile
+
