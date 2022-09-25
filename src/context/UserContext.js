@@ -28,8 +28,6 @@ const UserProvider = (props) => {
           .toLocaleLowerCase()
           .includes(searchInput.toLocaleLowerCase())
       );
-          console.log(filteredData);
-
       setFilteredResults(filteredData);
       setShowUsers(false);
       setshowResults(true);

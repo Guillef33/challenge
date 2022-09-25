@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../App.css";
-import RandomUserList from "../components/List/RandomUserList";
+import UserList from "../components/List/UserList";
 import { UserContext } from "../context/UserContext";
 import Header from "../components/Header/Header";
 import { Link } from "react-router-dom";
@@ -38,14 +38,12 @@ function Home() {
           onChange={(e) => searchItems(e.target.value)}
           name="searchBox"
         />{" "}
-        {/* <Box className="button-wrapper"> */}
-        <Button component={Link} variant="contained" to="/custom">
+        <Button component={Link} variant="contained" to="/advanced-search">
           Advanced Search
         </Button>
-        {/* </Box> */}
       </Box>
       <Box>
-        <RandomUserList
+        <UserList
           users={users}
           setUsers={setUsers}
           filteredResults={filteredResults}

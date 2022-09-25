@@ -6,7 +6,7 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import Banderas from "../components/CustomCall/Banderas";
+import AdvancedSearch from "../components/CustomCall/AdvancedSearch";
 
 import Home from "../pages/Home";
 
@@ -15,7 +15,7 @@ function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/custom" element={<Banderas />} />
+        <Route path="/advanced-search" element={<AdvancedSearch />} />
       </Routes>
     </Router>
   );

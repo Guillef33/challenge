@@ -14,8 +14,9 @@ import {
   MenuItem,
 } from "@mui/material";
 
-function Banderas() {
+function AdvancedSearch () {
   const [cantidad, setCantidad] = useState(0);
+  const [errorCantidad, setErrorCantidad] = useState(false);
   const [pais, setPais] = useState("dk");
   const [customCall, setCustomCall] = useState([]);
   const [showCustom, setShowCustom] = useState(false);
@@ -26,7 +27,6 @@ function Banderas() {
 
   const getCustomRequest = (event) => {
     event.preventDefault();
-    console.log(cantidad, pais);
     fetch(`https://randomuser.me/api/?results=${cantidad}&nat=${pais}`)
       .then((res) => res.json())
       .then((json) => setCustomCall(json.results))
@@ -53,16 +53,17 @@ function Banderas() {
             value={pais}
             onChange={handleChange}
           >
-            <MenuItem value="dk">Dinamarca</MenuItem>
-            <MenuItem value="gb">Inglaterra</MenuItem>
-            <MenuItem value="fr">Francia</MenuItem>
-            <MenuItem value="es">Espana</MenuItem>
-            <MenuItem value="br">Brasil</MenuItem>
-            <MenuItem value="mx">Mexico</MenuItem>
+            <MenuItem value="dk">Denmark</MenuItem>
+            <MenuItem value="gb">England</MenuItem>
+            <MenuItem value="fr">France</MenuItem>
+            <MenuItem value="es">Spain</MenuItem>
+            <MenuItem value="br">Brazil</MenuItem>
+            <MenuItem value="mx">Mejico</MenuItem>
           </Select>
         </FormControl>
         <TextField
           margin="normal"
+          error={errorCantidad}
           required
           fullWidth
           id="quantity"
@@ -70,8 +71,19 @@ function Banderas() {
           name="quantity"
           autoComplete="quantity"
           autoFocus
-          onChange={(e) => setCantidad(e.target.value)}
+          onChange={(e) => {
+            setCantidad(e.target.value);
+            // if (cantidad.lenght > 3) {
+            //   return null
+            // }
+            // if (cantidad.typeof !== "number") {
+            //   setErrorCantidad(true);
+            // } else {
+            //   setErrorCantidad(false);
+            // }
+          }}
           type="number"
+          // helperText="Debe ingresar un numero"
         />
         <Button
           type="submit"
@@ -81,7 +93,9 @@ function Banderas() {
         >
           See custom request
         </Button>
-        <Button variant="outlined" component={Link} to="/">Back to home</Button>
+        <Button variant="outlined" component={Link} to="/">
+          Back to home
+        </Button>
       </Box>
 
       <Box className="cards-container">
@@ -95,4 +109,4 @@ function Banderas() {
   );
 }
 
-export default Banderas;
+export default AdvancedSearch;

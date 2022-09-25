@@ -6,10 +6,11 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Typography,
 } from "@mui/material";
 
-import "../../App.css";
+import UserContent from "./UserContent";
+
+import "./Users.css";
 
 function UserCard({ user }) {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -27,30 +28,16 @@ function UserCard({ user }) {
         alt="imagen-de-perfil"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {user.name.first}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {user.email}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {user.location.country}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {user.location.city}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {user.location.street.name} {user.location.street.number}
-        </Typography>
+        <UserContent user={user} />
       </CardContent>
       <CardActions>
         <Button
           variant="contained"
-          // onClick={showPop}
           onClick={showPop}
           name="popUp-button"
           size="small"
-        >See Profile
+        >
+          See Profile
         </Button>
       </CardActions>
 

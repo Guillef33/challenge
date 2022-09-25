@@ -1,5 +1,7 @@
-import React from "react";
-import { Modal, Box, Button, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Modal, Box, Button } from "@mui/material";
+
+import UserContent from "./UserContent";
 
 function ShowPop({ user, setShowPopUp, showPopUp }) {
   const style = {
@@ -28,12 +30,7 @@ function ShowPop({ user, setShowPopUp, showPopUp }) {
       aria-describedby="parent-modal-description"
     >
       <Box sx={{ ...style, width: 300 }}>
-        <Typography id="parent-modal-title" variant="h6">
-          {user.name.first}
-        </Typography>
-        <Typography id="parent-modal-description" variant="book">
-          {user.location.country}
-        </Typography>
+        <UserContent user={user} showPopUp={showPopUp} />
         <Button onClick={handleClose}>Close</Button>
       </Box>
     </Modal>
